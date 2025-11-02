@@ -363,6 +363,7 @@ library(ggplot2)
 library(tmap)
 library(sf)
 library(stringr)
+library(ggspatial)
 
 salamanders &lt;- read.csv(&quot;salamander_data_cleaned_CSV.csv&quot;)</code></pre>
 </div>
@@ -434,7 +435,11 @@ ggplot() +
   geom_point(data = salamanders, aes(x = longitude, y = latitude), color = &quot;red&quot;, size = 1) +
   coord_fixed(1.3) + # aspect ratio
   theme_minimal() +
-  ggtitle(&quot;Small-Mouthed Salamander iNaturalist Sightings&quot;)</code></pre>
+  ggtitle(&quot;Small-Mouthed Salamander iNaturalist Sightings&quot;) +
+  annotate(&quot;text&quot;, x = -103, y = 24, label = &quot;Data from iNaturalist.com, retrieved on 11/1/2025. Map created by Emmett Henry on 11/2/2025.&quot;, color = &quot;black&quot;, size = 3) +
+  annotation_north_arrow(
+    location = &quot;br&quot;, # bottom right
+    style = north_arrow_minimal )</code></pre>
 <p><img src="small-mouth-salamander-analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="results" class="section level1">
